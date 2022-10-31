@@ -6,7 +6,7 @@ Grist API implementation for flutter
 
 ### Create API Object
 
-You can get docs_id and api_key settings
+You can get docs_id and api_key getgrist.com settings
 
 Server key is your URL, docs.getgrist.com if you're not using team.
 And teamname.getgrist.com if you are in team.
