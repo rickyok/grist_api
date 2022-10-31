@@ -20,9 +20,19 @@ class GristAPI {
     };
   }
 
-  Future<dynamic> fetchRecords(String tableName, Map filters) async {
+  Future<dynamic> fetchRecords(String tableName, {Map? filter, String? sort, int limit=0}) async {
+    Map<String,String> parameters = {};
+    parameters['limit'] = limit.toString();
+    if (filter != null) {
+      parameters["filter"] = jsonEncode(filter);
+    }
+    if (sort != null) {
+      parameters["sort"] = sort;
+    }
     String url = "$server/api/docs/$docId/tables/$tableName/records";
-    final ret = await http.get(Uri.parse(url), headers: getHeaders());
+    final uri = Uri.parse(url);
+    final uri2 = Uri.https(uri.authority, uri.path, parameters);
+    final ret = await http.get(uri2, headers: getHeaders());
     return jsonDecode(ret.body)['records'];
   }
   

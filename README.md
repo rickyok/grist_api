@@ -20,11 +20,33 @@ final gristApi = GristAPI('docs_id' , 'api_key', server: 'https://docs.getgrist.
 Note: Name is one of the sample field that we are using.
 
 ```dart
-final ret = await gristApi.fetchRecords('TableName', {});
+final ret = await gristApi.fetchRecords('TableName');
 for (var v in ret) {
   print(v['fields']['Name']);
 }
 ```
+
+With limit
+
+Example for just retreive 5 rows
+```dart
+final ret = await gristApi.fetchRecords('TableName', limit=5);
+```
+
+With sort
+
+Sort with multiple fields, example Name ascending and age descending
+```dart
+final ret = await gristApi.fetchRecords('TableName', sort='Name,-age');
+```
+
+With filter
+
+Example, filter only name Vero or Pascal
+```dart
+final ret = await gristApi.fetchRecords('TableName', filter={Name: ['Vero','Pascal']});
+```
+
 
 ### Add data
 
