@@ -45,7 +45,7 @@ final ret = await gristApi.updateRecords('TableName', [{"id": 19, "Name": "Updat
 Delete data, parameter is just list of ids that wants to be deleted.
 
 ```dart
-final ret = await gristApi.deleteRecords('Guru', [18]);
+final ret = await gristApi.deleteRecords('TableName', [18]);
 ```
 
 ## Additional information
