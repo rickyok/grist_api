@@ -1,6 +1,6 @@
 name: grist_api
 description: Grist API Impelementation for dart / flutter.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/rickyok/grist_api
 repository: https://github.com/rickyok/grist_api
 
